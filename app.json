@@ -1,0 +1,48 @@
+{
+  "pages":[
+    "pages/scriptLibrary/scriptLibrary",
+    "pages/bookShelf/bookShelf",
+    "pages/profile/profile",
+    "pages/category/category",
+    "pages/bookList/bookList",
+    "pages/editProfile/editProfile",
+    "pages/markList/markList",
+    "pages/noteList/noteList",
+    "pages/noteDetail/noteDetail",
+    "pages/article/article",
+    "pages/collectionFolderList/collectionFolderList",
+    "pages/search/search",
+    "pages/bookFolder/bookFolder",
+    "pages/share/share",
+    "pages/operationWeb/operationWeb",
+    "pages/noteBookList/noteBookList",
+    "pages/addNote/addNote"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle":"black",
+    "navigationBarTitleText":"歪马剧本"
+  },
+  "tabBar": {
+    "selectedColor": "#1971E9",
+    "color":"#5D646E",
+    "list": [{
+      "pagePath": "pages/bookShelf/bookShelf",
+      "text": "书架",
+      "iconPath": "./asset/images/icon-bookcase.png",
+      "selectedIconPath": "./asset/images/icon-bookcase-selected.png"
+    },{
+      "pagePath": "pages/scriptLibrary/scriptLibrary",
+      "text": "剧本库",
+      "iconPath": "./asset/images/icon-scriptlibrary.png",
+      "selectedIconPath": "./asset/images/icon-scriptlibrary-selected.png"
+    },{
+      "pagePath": "pages/profile/profile",
+      "text": "我",
+      "iconPath": "./asset/images/icon-profile.png",
+      "selectedIconPath": "./asset/images/icon-profile-selected.png"
+    }]
+  }
+}
+

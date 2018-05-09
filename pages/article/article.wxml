@@ -1,0 +1,72 @@
+<!--index.wxml-->
+<!--<scroll-view class="test" scroll-y>
+        <block wx:for="{{textArr}}" wx:key>
+        <text id="{{index}}" data-data="{{item}}" bind:longpress="tapname" wx:if="{{item == ''}}">\n</text>
+        <text id="{{index}}" data-data="{{item}}" class="selected" bind:longpress="tapname" wx:elif="{{item.selected == true}}">{{item.text}}\n</text>
+        <text id="{{index}}" data-data="{{item}}" class="normal" bind:longpress="tapname" wx:else>{{item.text}}\n</text>
+</block>
+</scroll-view>-->
+
+
+<view class="operation backcolor-{{selctedColor}} {{menuAble?'menuAble':''}}" animation="{{menuAnimation}}">
+
+    <view class="progress-bar" wx:if="{{showProgressBar}}">
+        {{progressNumber}}%
+    </view>
+    <view class="operation-article-list">
+        <image class="operation-article-list-icon" src="../../asset/images/article-list.png" catchtouchend="gotoNoteList" mode="aspectFill" />
+    </view>
+    <view class="operation-article-share">
+        <image class="operation-article-share-icon" src="../../asset/images/article-share.png" catchtouchend="gotoShare" mode="aspectFill" />
+    </view>
+    <view class="sub-operation-font {{fontSelected?'show':''}}">
+        <image src="../../asset/images/font.png" mode="aspectFill" class="small-a" />
+        <slider class="font-slider" value="{{fontSliderDefaultValue}}" bindchange="fontSliderChange" min="12" max="20" step="2" block-size="20" />
+        <image src="../../asset/images/font.png" mode="aspectFill" class="big-a" />
+    </view>
+    <view class="sub-operation-backcolor {{backcolorSelected?'show':''}}">
+        <view class="sub-operation-backcolor-item backcolor-1 {{selctedColor=='1'?'selected':''}}" data-color="1" bindtap="handleSelectColor"></view>
+        <view class="sub-operation-backcolor-item backcolor-2 {{selctedColor=='2'?'selected':''}}" data-color="2" bindtap="handleSelectColor"></view>
+        <view class="sub-operation-backcolor-item backcolor-3 {{selctedColor=='3'?'selected':''}}" data-color="3" bindtap="handleSelectColor"></view>
+        <image src="../../asset/images/night.png" mode="aspectFill" class="sub-operation-backcolor-item backcolor-4 {{selctedColor=='4'?'selected':''}}" data-color="4" bindtap="handleSelectColor" />
+    </view>
+    <view class="sub-operation-progress {{progressSelected?'show':''}}">
+        <slider class="progress-slider" value="{{progressSliderDefaultValue}}" bindchange="progressSliderChange" min="0" max="100" step="1" bindchanging="progressChanging" block-size="20" />
+    </view>
+    <view class="operation-flex">
+        <image class="operation-font operation-button" mode="aspectFill" src="../../asset/images/{{fontSelected?'font-selected.png':'font.png'}}" bindtap="handleFontSelected" />
+        <image class="operation-backcolor operation-button" mode="aspectFill" src="../../asset/images/{{backcolorSelected?'backcolor-selected.png':'backcolor.png'}}" bindtap="handleBackcolorSelected" />
+        <image class="operation-progress operation-button" mode="aspectFill" src="../../asset/images/{{progressSelected?'progress-selected.png':'progress.png'}}" bindtap="handleProgressSelected" />
+        <image class="operation-collection operation-button" mode="aspectFill" src="../../asset/images/{{inBookCase?'collection-selected.png':'collection.png'}}" bindtap="handleAddBookToCase" />
+    </view>
+</view>
+
+<view class="write-selected {{selectedArr.length > 0?'show':''}}" catchtouchend="gotoWriteNote">
+    <image class="write-selected-icon" src="../../asset/images/edit.png" mode="aspectFill" />
+</view>
+
+<view class="cancel-selected {{selectedArr.length > 0?'show':''}}" catchtouchend="cancelAllSelected">
+    <image class="cancel-selected-icon" src="../../asset/images/close.png" mode="aspectFill" />
+</view>
+
+<scroll-view class="content backcolor-{{selctedColor}}" id="content" scroll-y scroll-top="{{scrollTop}}" bindscroll="hideMenu">
+
+    <view class="article {{fontStyle}}" bindtap="showMenuOrHideMenu" id="article">
+        <view class="article-header">
+            {{article.scriptName}}
+        </view>
+        <block wx:if="{{backBook}}">
+            <view class="back-book" catchtap="backHome">
+                <view class="back-book-title">更多剧本</view><image class="back-book-image" src="" mode="aspectFill" src="../../asset/images/back-book.png" />
+            </view>
+        </block>
+        <block wx:for="{{arr}}" wx:key>
+            <text class="text marked" data-data="{{item}}" wx:if="{{item.note}}" catchtap="gotoNote">{{item.text}}\n</text>
+            <text class="text {{item.title == 1?'subtitle':''}}" data-data="{{item}}" wx:elif="{{item.selected == false}}" bindtouchmove="move" bindtouchstart="start" catchtouchend="end">{{item.text}}\n</text>
+            <text class="text selected" data-data="{{item}}" wx:elif="{{item.selected == true}}" bindtouchmove="cancelMove" catchtouchend="cancelPress">{{item.text}}\n</text>
+            <text wx:else>\n</text>
+        </block>    
+    </view>
+</scroll-view>
+
+

@@ -1,0 +1,38 @@
+<!--index.wxml-->
+
+<import src='../../template/template.wxml' />
+
+    <view class="show-empty" wx:if="{{showEmpty}}">
+        <view class="show-empty-text">
+            暂无笔记
+        </view>
+        <view class="show-empty-text">
+            在阅读时长按文字可以记笔记
+        </view>
+    </view>
+
+    <view wx:else class="scroll-view-wrap">
+
+            <block wx:for="{{collectionData.note}}" wx:key>
+                <view class="list-item" bindtap="gotoNoteDetail" data-data="{{item}}">
+                    <view class="item-header">
+                        {{item.year}}年{{item.mon}}月{{item.day}}日
+                    </view>
+                    <view class="note-text">
+                        {{item.note}}
+                    </view>
+                    <view class="item-mark">
+                        {{item.markText}}
+                    </view>
+                    <view class="list-item-footer">
+                        <view data-index="{{index}}" class="delete-button" catchtap="deleteMaterial">
+                            删除
+                        </view>
+                    </view>
+                </view>
+            </block>
+
+    </view>
+    
+
+    

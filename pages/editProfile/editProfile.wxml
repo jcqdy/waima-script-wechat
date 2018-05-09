@@ -1,0 +1,28 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="avatar content">
+        <view class="title">
+            头像
+        </view>
+        <image class="avatar-image" mode="aspectFill" src="{{userInfo.avatarUrl}}" />
+    </view>
+    <view class="nickname content">
+        <view class="title">
+            昵称
+        </view>
+
+        <input class="profile-input" type="text" disabled value="{{userInfo.nickName}}" />
+
+    </view>
+    <view class="mobile content">
+        <view class="title">
+            电话
+        </view>
+        <input class="profile-input" bindinput="phoneChange" type="number" value="{{userInfo.phoneNum}}" />
+    </view>
+
+    <button class="save-button" type="primary" bindtap="updateInfo">保存</button>
+
+</view>
+    
+    

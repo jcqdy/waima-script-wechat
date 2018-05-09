@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<!--<scroll-view class="test" scroll-y>
+        <block wx:for="{{textArr}}" wx:key>
+        <text id="{{index}}" data-data="{{item}}" bind:longpress="tapname" wx:if="{{item == ''}}">\n</text>
+        <text id="{{index}}" data-data="{{item}}" class="selected" bind:longpress="tapname" wx:elif="{{item.selected == true}}">{{item.text}}\n</text>
+        <text id="{{index}}" data-data="{{item}}" class="normal" bind:longpress="tapname" wx:else>{{item.text}}\n</text>
+</block>
+</scroll-view>-->
+<canvas class="my-canvas" canvas-id="myCanvas" style="{{canvasStyle}}" />
+<view class="save-image" bindtap="saveImage">
+        点击保存并分享
+</view>
+
+
+

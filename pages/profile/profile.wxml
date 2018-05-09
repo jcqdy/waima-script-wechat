@@ -1,0 +1,46 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo" bindtap="bindViewTap">
+    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname" bindtap="bindViewTap">{{userInfo.nickName}}</text>
+    <image src="../../asset/images/profile-arrow.png" mode="aspectFill" class="profile-arrow" bindtap="bindViewTap" />
+  </view>
+  
+  <view class="operation-container">
+      <view class="operation-collection operation-item" bindtap="gotoCollection">
+          <image class="operation-icon" src="../../asset/images/profile-collection.png"></image>素材收藏
+      </view>
+      <view class="operation-collection operation-item" bindtap="gotoNoteList">
+          <image class="operation-icon" src="../../asset/images/profile-note.png"></image>我的笔记
+      </view>
+      <view class="operation-readed operation-item">
+            <view class="operation-item-left">
+                <image class="operation-icon" src="../../asset/images/profile-readed.png"></image>已读剧本
+            </view>
+            <text class="operation-item-right">
+                {{userData.record.readNum.readNum}}<text class="sub-suffix"> 本</text>\n <text class="sub-text">
+                    {{userData.record.readNum.achText}}
+              </text>
+            </text>
+      </view>
+      <view class="operation-readday operation-item">
+          <view class="operation-item-left">
+              <image class="operation-icon" src="../../asset/images/profile-readday.png"></image>阅读天数
+          </view>
+          <text class="operation-item-right">
+              {{userData.record.readDays.readNum}}<text class="sub-suffix"> 天</text>\n <text class="sub-text">
+                    {{userData.record.readDays.achText}}
+              </text>
+          </text>
+      </view>
+      <view class="operation-continuousday operation-item">
+          <view class="operation-item-left">
+              <image class="operation-icon" src="../../asset/images/profile-readline.png"></image>已连续阅读
+          </view>
+          <text class="operation-item-right last">
+              {{userData.record.keepReadDays.readNum}}<text class="sub-suffix"> 天</text>
+          </text>
+      </view>
+  </view>
+
+</view>

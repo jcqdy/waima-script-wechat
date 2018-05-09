@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class="header">
+    <view class="search-wrap">
+        <image src="../../asset/images/search.png" class="search-icon" mode="center" />
+        <input class="search-input" focus="true" bindconfirm="search" confirm-type="search" type="text" placeholder="搜索" />
+    </view>    
+</view>
+
+<view class="no-data" wx:if="{{noData}}">
+    <view>
+        暂没找到相关的剧本哦
+    </view>
+    <view>
+        我们正在尽快收集
+    </view> 
+</view>
+
+<view wx:else class="content">
+        <block wx:for="{{items}}" wx:key>
+            <view class="book-item" data-data="{{item}}" bindtap="gotoReadBook">
+                <image class="book-item-left" mode="aspectFill" src="{{item.coverUrl}}" />
+                <view class="book-item-right">
+                    <view class="sub-text name">
+                        {{item.scriptName}}
+                    </view>  
+                    <view class="sub-text">
+                        {{item.scriptTypeString}}
+                    </view>      
+                    <view class="sub-text">
+                        编剧：{{item.writerString}}
+                    </view>
+                </view>
+            </view>
+        </block>
+
+    
+</view>
+    

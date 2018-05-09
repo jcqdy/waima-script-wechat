@@ -1,0 +1,78 @@
+<!--index.wxml-->
+<scroll-view class="container" scroll-y>
+    <swiper class="swiper" indicator-dots="{{indicatorDots}}" 
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{banner}}" wx:key>
+            <swiper-item data-item="{{item}}" bindtap="gotoOperationBook">
+                <image mode="aspectFill" src="{{item.resourceUrl}}" class="slide-image" />
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <view class="search-wrap">
+        <image src="../../asset/images/search.png" bindtap="gotoSearch" class="search-icon" mode="center" />
+        <input class="search-input" confirm-type="search" type="text" placeholder="请输入剧本名称" disabled bindtap="gotoSearch" />
+    </view>
+    
+
+    <!--剧本分类-->
+    <view class="section">
+        <view class="section-header">
+            <text class="section-header-title">剧本分类</text>
+            <text class="section-header-more" bindtap="gotoCategory">查看更多</text>
+        </view>
+        <scroll-view class="category-list" scroll-x>
+            <block wx:for="{{scriptType}}" wx:key>
+                <view class="category-item" data-index="{{index}}" bindtap="gotoCategoryItem">
+                    <view class="category-item-content">
+                        <image class="category-item-image" mode="aspectFill" src="{{item.coverUrl}}" />
+                        <text class="category-item-text">{{item.typeName}}\n<text class="category-item-subtext">{{item.typeEname}}</text></text>
+                        <image src="../../asset/images/circle.png" mode="aspectFill" class="category-item-icon" />
+                    </view>
+                </view>
+            </block>
+        </scroll-view>
+    </view>
+    <!--热门剧本-->
+    <view class="section">
+        <view class="section-header">
+            <text class="section-header-title">热门剧本</text>
+            <text class="section-header-more" bindtap="gotoHotBook">查看更多</text>
+        </view>
+        <view class="hot-list">
+            <block wx:for="{{hotScript}}" wx:key>
+                <view class="hot-item" data-data="{{item}}" bindtap="gotoReadBook">
+                    <view class="hot-item-content">
+                        <image class="hot-item-image" mode="aspectFill" src="{{item.coverUrl + imageView}}" />
+                        <text class="hot-item-text">{{item.scriptName}}\n<text class="hot-item-subtext">{{item.readerNum}}人阅读</text></text>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+
+    <!--新进剧本-->
+    <view class="section new">
+        <view class="section-header">
+            <text class="section-header-title">新进剧本</text>
+            <text class="section-header-more" bindtap="gotoNewBook">查看更多</text>
+        </view>
+        <view class="new-list">
+            <block wx:for="{{newScript}}" wx:key>
+                <view class="new-item" data-data="{{item}}" bindtap="gotoReadBook">
+                    <view class="new-item-content">
+                        <image class="new-item-image" mode="aspectFill" src="{{item.coverUrl + imageView}}" />
+                        <text class="new-item-text">{{item.scriptName}}\n
+                            <text class="new-item-subtext">
+                                {{item.scriptTypeString}}
+                            </text>\n  
+                            <text class="new-item-subtext">编剧：{{item.writerString}}</text>
+                        </text>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    
+</scroll-view>
+    

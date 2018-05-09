@@ -1,0 +1,57 @@
+<!--index.wxml-->
+
+<import src='../../template/template.wxml' />
+
+<view class="tool-bar" wx:if="{{manageButtonStatus == 1}}">
+        <view class="delete-button" bindtap="deleteBook">
+            删除
+        </view>
+        <view class="move-button" bindtap="handleMoveBook">
+            移动
+        </view>
+        <view class="edit-folder" bindtap="editFolderName">
+            修改文件夹
+        </view>
+        <view class="cancel-button" bindtap="manage">
+            取消
+        </view>
+</view>
+
+<view class="container {{manageButtonStatus == 1?'show-menu':''}}">
+    <view class="content">
+
+        <block wx:for="{{shelfData.data}}" wx:key>
+     
+                <view wx:if="{{item.isFolder}}" class="book">
+                    <image class="book-cover" data-folderId="{{item.folderId}}" mode="aspectFill" src="" bindtap="gotoFolder" />
+                    <text class="book-name">{{item.folderName}}</text>
+                </view>
+        
+                <view wx:else class="book" data-index="{{index}}" data-book="{{item}}" bindtap="gotoReadBook">
+                    <image class="book-cover" mode="aspectFill" src="{{item.coverUrl + imageView}}" />
+                    <text class="book-name">{{item.scriptName}}</text>
+                    <block wx:if="{{manageButtonStatus == 1}}">
+                        <image src="../../asset/images/select-highlight.png" mode="aspectFill" wx:if="{{item.selected == 1}}" class="select-button" data-index="{{index}}" bindtap="unselect" />
+                        <image src="../../asset/images/select-normal.png" mode="aspectFill" wx:else class="select-button" data-index="{{index}}" bindtap="select" />
+                    </block>
+                </view>
+        </block>
+       
+    </view>
+    
+    <image src="../../asset/images/sortout.png" mode="aspectFill" wx:if="{{manageButtonStatus == 0}}" class="manage-button" bindtap="manage" />
+
+    <block wx:if="{{folderEdit}}">
+        <template is="prompt" data="{{...promptData}}"></template>
+    </block>
+
+    <block wx:if="{{createFolder}}">
+        <template is="prompt" data="{{...createFolderData}}"></template>
+    </block>
+
+    <block wx:if="{{folderMaskShow}}">
+        <template is="selectList" data="{{...showSelectListData}}"></template>
+    </block>
+
+</view>
+    

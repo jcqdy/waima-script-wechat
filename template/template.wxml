@@ -1,0 +1,45 @@
+<template name="prompt">
+    <view class="prompt-container">
+        <view class="prompt-container-flex">
+            <view class="prompt-content">
+                <view class="prompt-header">
+                    {{title}}
+                </view>
+                <input type="text" maxlength="12" focus="{{true}}" adjust-position value="{{value || ''}}" data-type="{{type || ''}}" placeholder="{{placeholder}}" class="prompt-input" bindinput="promptInputChange" />  
+                <view class="prompt-operation">
+                    <view class="prompt-cancel" data-type="{{type || ''}}" bindtap="promptCancel">
+                        {{cancelName}}
+                    </view>
+                    <view class="prompt-confirm" data-type="{{type || ''}}" bindtap="promptConfirm">
+                        {{confirmName}}
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+
+<template name="selectList">
+    <view class="select-list">
+        <view class="select-list-flex">
+            <view class="select-list-content">
+                <view class="select-list-title">
+                    {{title}}
+                </view>
+                <view wx:if="{{subtitle}}" class="select-list-subtitle">
+                    {{subtitle}}
+                </view>
+                <scroll-view class="select-list-list" scroll-y>
+                    <block wx:for="{{list}}" wx:key>
+                        <view style="{{item.style}}" class="select-list-item" data-data="{{item}}" bindtap="selectListTap">
+                            {{item.name || item.folderName}}
+                        </view>
+                    </block>
+                </scroll-view>
+                <view class="select-list-cancel" bindtap="selectListCancel">
+                    取消
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

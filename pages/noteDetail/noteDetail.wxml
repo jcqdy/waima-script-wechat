@@ -1,0 +1,70 @@
+<!--index.wxml-->
+
+<import src='../../template/template.wxml' />
+
+<view class="container">
+
+    <view class="header">
+        <image class="header-cover" mode="aspectFill" src="{{note.coverUrl + imageView}}" />
+        <view class="header-text">
+            <view class="header-sub-text title">
+                {{note.scriptName}}
+            </view>
+            <view class="header-sub-text desc">
+                编剧：{{writer}}
+            </view>
+        </view>        
+    </view> 
+
+    <view class="content">
+        
+        <scroll-view class="mark-view" scroll-y>
+            <text class="mark-view-text" selectable="true" space="true">{{markText}}</text>
+        </scroll-view>
+
+        <view class="operation">
+    
+            <block wx:if="{{collected}}">
+                <view class="mark-button" bindtap="cancelCollect">
+                    <image src="../../asset/images/star-selected.png" mode="aspectFill" class="mark-image" />
+                    取消收藏
+                </view>
+                
+            </block>
+            <block wx:else>
+                <view class="mark-button {{editDisable?'disable':''}}" bindtap="doCollect">
+                    <image wx:if="{{editDisable}}" src="../../asset/images/star-disable.png" mode="aspectFill" class="mark-image" />
+                    <image wx:else src="../../asset/images/star.png" mode="aspectFill" class="mark-image" />
+                    收藏为素材
+                </view>
+            </block>
+            
+            <view wx:if="{{editTaped}}" class="save-button {{editDisable?'disable':''}}" bindtap="save">
+                <image wx:if="{{editDisable}}" class="save-image" src="../../asset/images/plant-disable.png" mode="aspectFill" />
+                <image wx:else class="save-image" src="../../asset/images/plant.png" mode="aspectFill" />
+                保存
+            </view>
+            <view wx:else class="edit-button" bindtap="editTaped">
+                <image class="edit-image" src="../../asset/images/noteDetail-edit.png" mode="aspectFill" />
+                编辑
+            </view>
+            
+        </view>
+
+        <view class="textarea-content {{(folderMaskShow || showCreateFolder)?'hide':''}}">
+            <textarea focus="{{editTaped?true:false}}" maxlength="10000" disabled="{{editTaped?false:true}}" class='textarea {{folderMaskShow==true?"textarea-hidden":""}}' value="{{textAreaDefaultValue}}" placeholder="写下笔记或想法..." bindinput="valueChange" adjust-position="{{true}}" />
+        </view>
+
+    </view>
+
+    <block wx:if="{{folderMaskShow}}">
+        <template is="selectList" data="{{...showSelectListData}}" />
+    </block>
+
+    <block wx:if="{{showCreateFolder}}">
+        <template is="prompt" data="{{...showFolderNameEditData}}" />
+    </block>
+
+</view>
+    
+    

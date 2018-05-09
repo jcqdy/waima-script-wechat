@@ -1,0 +1,46 @@
+<!--index.wxml-->
+
+<import src='../../template/template.wxml' />
+
+    <view class="scroll-view-wrap">
+        <view class="scroll-view-header">
+            <view class="header-title">
+                {{name}}
+            </view>
+            <image class="header-edit" mode="aspectFill" src="../../asset/images/marklist-edit.png" bindtap="editFolder" />
+        </view>
+
+        <view class="has-nodata" wx:if="{{hasNoData}}">
+            暂无素材
+        </view>
+
+        <block wx:else>
+            <block wx:for="{{collectionData.note}}" wx:key>
+                <view class="list-item" bindtap="gotoNoteDetail" data-data="{{item}}">
+                    <view class="item-header">
+                        {{item.scriptName}} . {{item.year}}年{{item.mon}}月{{item.day}}日
+                    </view>
+                    <view class="note-text">
+                        {{item.note}}
+                    </view>
+                    <view class="item-mark">
+                        {{item.markText}}
+                    </view>
+                    <view class="list-item-footer">
+                        <view data-index="{{index}}" class="delete-button" catchtap="deleteMaterial">
+                            删除
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </block>
+
+    </view>
+
+    <block wx:if="{{showFolderNameEdit}}">
+        <template is="prompt" data="{{...showFolderNameEditData}}" />
+    </block>
+    
+    
+
+    

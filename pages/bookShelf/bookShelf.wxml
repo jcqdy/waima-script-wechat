@@ -1,0 +1,59 @@
+<!--index.wxml-->
+
+
+<import src='../../template/template.wxml' />
+
+<view class="tool-bar" wx:if="{{manageButtonStatus == 1}}">
+        <view class="delete-button" bindtap="deleteBook">
+            删除
+        </view>
+        <view class="move-button" bindtap="handleMoveBook">
+            移动
+        </view>
+        <view class="cancel-button" bindtap="manage">
+            取消
+        </view>
+</view>
+
+<view class="container {{manageButtonStatus == 1?'show-menu':''}}">
+    <view class="content" wx:if="{{shelfData.length > 0}}">
+    
+        <block wx:for="{{shelfData}}" wx:key>
+     
+                <view wx:if="{{item.isFolder}}" class="book {{manageButtonStatus == 1?'folder-disable':''}}">
+                    <view class="book-cover folder" data-folder="{{item}}" mode="aspectFill" src="" bindtap="gotoFolder">
+                        <block wx:for="{{item.covers}}" wx:key>
+                            <image class="folder-cover" src="{{item + imageView}}" />
+                        </block>
+                    </view>
+                    <text class="book-name">{{item.folderName}}</text>
+                </view>
+        
+                <view wx:else class="book" data-index="{{index}}" data-book="{{item}}" bindtap="gotoReadBook">
+                    <image class="book-cover" mode="aspectFill" src="{{item.data.coverUrl + imageView}}" />
+                    <text class="book-name">{{item.data.scriptName}}</text>
+                    <block wx:if="{{manageButtonStatus == 1}}">
+                        <image src="../../asset/images/select-highlight.png" mode="aspectFill" wx:if="{{item.selected == 1}}" class="select-button" data-index="{{index}}" bindtap="unselect" />
+                        <image src="../../asset/images/select-normal.png" mode="aspectFill" wx:else class="select-button" data-index="{{index}}" bindtap="select" />
+                    </block>
+                </view>
+        </block>
+       
+    </view>
+
+    <view class="empty" wx:elif="{{shelfData && shelfData.length == 0}}">
+        <image src="../../asset/images/shelf-empty.png" class="empty-image" />
+    </view>
+    
+    <image src="../../asset/images/sortout.png" mode="aspectFill" wx:if="{{manageButtonStatus == 0}}" class="manage-button" bindtap="manage" />
+
+    <block wx:if="{{createFolder}}">
+        <template is="prompt" data="{{...createFolderData}}"></template>
+    </block>
+
+    <block wx:if="{{moveBook}}">
+        <template is="selectList" data="{{...showSelectListData}}"></template>
+    </block>
+
+</view>
+    

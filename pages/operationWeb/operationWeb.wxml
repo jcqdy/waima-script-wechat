@@ -1,0 +1,8 @@
+<!--index.wxml-->
+
+<block wx:if="{{link != null}}">
+        <web-view src="{{link}}"></web-view>
+</block>
+
+
+

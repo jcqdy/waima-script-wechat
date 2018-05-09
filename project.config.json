@@ -1,0 +1,128 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.91",
+	"appid": "wx7e537298ff00ddda",
+	"projectname": "book",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "剧本库",
+					"pathName": "pages/scriptLibrary/scriptLibrary",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "书架",
+					"pathName": "pages/bookShelf/bookShelf",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "剧本分类",
+					"pathName": "pages/category/category",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "分类OR热门",
+					"pathName": "pages/bookList/bookList",
+					"query": "type=hot"
+				},
+				{
+					"id": -1,
+					"name": "编辑个人资料",
+					"pathName": "pages/editProfile/editProfile",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "收藏夹",
+					"pathName": "pages/markList/markList",
+					"query": "pkgId= 5a9bd19f50cc871009cde1a8"
+				},
+				{
+					"id": -1,
+					"name": "笔记OR划线内容列表",
+					"pathName": "pages/noteList/noteList",
+					"query": ""
+				},
+				{
+					"id": 7,
+					"name": "笔记详情",
+					"pathName": "pages/noteDetail/noteDetail",
+					"query": "note={\"noteId\":\"5a9bb12f50cc87d908cde1b4\",\"scriptId\":\"5a9bb12f50cc87d908cde1aa\",\"markId\":null,\"userId\":\"5a9bb12f50cc87d908cde1ab\",\"type\":1,\"markPos\":[10,30],\"mark\":\"景 咖啡店 早上\\n\\n洛杉矶一家普通的邓氏\",\"note\":\"123456789\",\"pkgId\":\"5a9bd19f50cc871009cde1a8\",\"createTime\":1520152879,\"updateTime\":1520173323,\"year\":\"2018\",\"mon\":\"03\",\"day\":\"04\",\"scriptName\":\"低俗小说\"}"
+				},
+				{
+					"id": 8,
+					"name": "文章",
+					"pathName": "pages/article/article",
+					"query": "name=剧本名"
+				},
+				{
+					"id": -1,
+					"name": "个人资料",
+					"pathName": "pages/profile/profile",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "素材收藏夹列表",
+					"pathName": "pages/collectionFolderList/collectionFolderList",
+					"query": ""
+				},
+				{
+					"id": 11,
+					"name": "搜索",
+					"pathName": "pages/search/search",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "\b装书文件夹",
+					"pathName": "pages/bookFolder/bookFolder",
+					"query": ""
+				},
+				{
+					"id": 13,
+					"name": "分享",
+					"pathName": "pages/share/share",
+					"query": "article={\"scriptId\":\"5aa7b61750cc87a43507d4e8\",\"scriptName\":\"深深的腥红\",\"fileUrl\":\"https://scriptfile.ekaogo.com/FuLy2oaEOAX4EtMcJCnol9mcHaKs\",\"coverUrl\":\"https://scriptfile.ekaogo.com/Fjm4N2pOQVR8dBLbw1ICQEixgMIU\",\"scriptType\":[\"剧情\",\"爱情\",\"犯罪\"],\"scriptTypeId\":[\"5a9bb12f50cc87d908cde1a8\",\"5a9bb12f50cc87d908cde1a9\",\"5a9bb12f50cc87d908cde1b1\"],\"writer\":[\"Paz Alicia Garciadiego\",\"惊悚\"],\"readerNum\":99,\"createTime\":1520495944}"
+				},
+				{
+					"id": -1,
+					"name": "文章测试",
+					"pathName": "pages/article1/article1",
+					"query": ""
+				}
+			]
+		}
+	}
+}

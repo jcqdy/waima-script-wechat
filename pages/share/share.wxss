@@ -1,0 +1,37 @@
+/**index.wxss**/
+
+page {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* .my-canvas {
+  width: 70%;
+  height: 80%;
+  margin: 10% 0 0 15%;
+} */
+
+.my-canvas {
+  width: 300px;
+  height: 533px;
+}
+
+.save-image {
+  width: 270rpx;
+  height: 70rpx;
+  position: absolute;
+  left: 50%;
+  margin-left: -135rpx;
+  bottom: 60rpx;
+  background-color: #ECEDF1;
+  border-radius: 10rpx;
+  color: #5D646E;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 70rpx;
+}

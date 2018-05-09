@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<view class="content">
+
+        <view class="title">
+            {{title}}
+        </view>
+
+        <block wx:if="{{backBook}}">
+            <view class="back-book" catchtap="backHome">
+                <view class="back-book-title">更多剧本</view><image class="back-book-image" src="" mode="aspectFill" src="../../asset/images/back-book.png" />
+            </view>
+        </block>
+
+        <block wx:for="{{items}}" wx:key>
+            <view class="book-item" data-item="{{item}}" bindtap="gotoReadBook">
+                <image class="book-item-left" mode="aspectFill" src="{{item.coverUrl + imageView}}" />
+                <view class="book-item-right">
+                    <view class="sub-text name">
+                        {{item.scriptName}}
+                    </view>  
+                    <view class="sub-text">
+                        {{item.scriptTypeString}}
+                    </view>      
+                    <view class="sub-text">
+                        编剧：{{item.writerString}}
+                    </view>
+                </view>
+            </view>
+        </block>
+
+    
+</view>
+    

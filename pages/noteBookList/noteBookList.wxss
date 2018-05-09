@@ -1,0 +1,102 @@
+/**index.wxss**/
+
+page {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.container {
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.list {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrap {
+  width: 100%;
+  height: auto;
+  padding-bottom: 40rpx;
+}
+
+.list-item {
+  width: 90%;
+  height: 128rpx;
+  line-height: 128rpx;
+  margin: 0 0 50rpx 5%;
+  color: black;
+  font-size: 34rpx;
+  font-weight: bold;
+  text-align: left;
+  text-indent: 22rpx;
+  box-shadow: 0 0 50rpx #DCDDE2;
+  position: relative;
+  border-radius: 6rpx;
+  overflow: hidden;
+}
+
+.list-item:last-child {
+  margin-bottom: 100rpx;
+}
+
+.list-item:first-child {
+  margin-top: 70rpx;
+}
+
+.list-item-cover {
+  width: 102rpx;
+  height: 100%;
+  float: left;
+}
+
+.arrow {
+  width: 26rpx;
+  height: 44rpx;
+  position: absolute;
+  right: 50rpx;
+  top: 50%;
+  margin-top: -22rpx;
+}
+
+.empty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-title {
+  width: 100%;
+  height: 72rpx;
+  line-height: 72rpx;
+  font-size: 50rpx;
+  color: #9B9B9B;
+  text-align: center;
+  margin-top: 160rpx;
+}
+
+.goto-read {
+  width: 276rpx;
+  height: 112rpx;
+  background-color: #67A8FF;
+  border-radius: 6rpx;
+  font-size: 34rpx;
+  color: white;
+  line-height: 112rpx;
+  text-align: center;
+  margin-top: 380rpx;
+}
