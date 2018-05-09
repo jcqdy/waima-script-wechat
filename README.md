@@ -1,0 +1,1 @@
+# waima-script-wechat
